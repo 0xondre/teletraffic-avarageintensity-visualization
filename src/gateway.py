@@ -1,4 +1,4 @@
-import calculations as calc
+
 import input
 
 class Gateway:
@@ -15,10 +15,10 @@ class Gateway:
         intensywnosc = input1.intensywnosc
         czas = input1.czas
 
-        intensywnosc_ratioed = calc.calculateIntesityToTimeRatio(intensywnosc)
-        avg_time = calc.calculateAverageTime(czas)
+        intensywnosc_ratioed = calculateIntesityToTimeRatio(intensywnosc)
+        avg_time = calculateAverageTime(czas)
 
-        result = calc.calculateAvgIntensityAllTimeFrames(avg_time, intensywnosc_ratioed)
+        result = calculateAvgIntensityAllTimeFrames(avg_time, intensywnosc_ratioed)
 
         return result
     def saveDataToFile(self, intensities=[1,1,1,1,1,1,1,1,1], time=[1]) -> None:
@@ -31,3 +31,29 @@ class Gateway:
         for i in range(len(time)):
             f.write(str(time[i-1]) + "\n")
         f.close()
+
+
+def calculateAvgIntensityOneTimeFrame(average_time: float, intensity:float) -> float:
+    if average_time == 0 or intensity == 0:
+        return 0
+    else:
+        return average_time * intensity
+
+def calculateAverageTime(service_time: list) -> float:
+    if len(service_time) == 0:
+        return 0
+    else:
+        return sum(service_time) / len(service_time)
+
+def calculateAvgIntensityAllTimeFrames(average_time: float, intensities: dict) -> dict:
+    avg_intensities = {}
+    for key in intensities.keys():
+        avg_intensities[key] = calculateAvgIntensityOneTimeFrame(average_time, intensities[key])
+    return avg_intensities
+
+def calculateIntesityToTimeRatio(intensities: dict) -> dict:
+    sum_intensities = sum(intensities.values())
+    ratios = {}
+    for key in intensities.keys():
+        ratios[key] = intensities[key] / sum_intensities
+    return ratios

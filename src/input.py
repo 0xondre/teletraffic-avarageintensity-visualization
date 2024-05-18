@@ -21,5 +21,13 @@ class Input:
             self.czas.append(float(line[0]))
         fCzas.close()
 
+        for i in range(1,1441):
+            if str(i) not in self.intensywnosc.keys():
+                self.intensywnosc[str(i)] = 0
+        
+        sorted_keys = sorted(self.intensywnosc.keys(), key=lambda x: int(x))
+        self.intensywnosc = {key: self.intensywnosc[key] for key in sorted_keys}
+
+
     
     

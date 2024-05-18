@@ -1,1 +1,4 @@
-## Teletraffic average intensity visualization
+## Wizualizacja średniego natężenia telekomunikacyjnego
+Akceptowane typy plików .txt. Oba pliki muszą znajdować się w folderze /TeoriaRuchu/
+-Czasy rozmów w pliku czas.txt. Każda linijka to czas rozmowy reprezentowany jako float i tym co dzieli część ułamkową od całkowitej jest kropka. Nowy liczba musi znaleźć się w nowej linijce.
+-Intesywnosc w każdej minucie int.txt. Kazda linijka dzieli się na minutę doby w której następuje dana intensywność, dzieli je dowolna ilość spacji. Każda linijka to nowy rekord. Intensywność jest reprezentowana jako float i tym co dzieli część ułamkową od całkowitej jest kropka.
