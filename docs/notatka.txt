@@ -1,6 +1,0 @@
-liczby musza byc przedzielone kropka w tych plikach, notacja zwykła nie ta z e
-
-czas.txt| int.txt 						      |
-liczba	| która minuta, jaka to część całości (jedna spacja pomiedzy) | 
-11 	| 1 0.01245  						      |
-62	| 3 0.05512						      |

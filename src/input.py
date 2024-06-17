@@ -17,9 +17,10 @@ class Input:
         fCzas = open(self.time_name, "r")
         lines = fCzas.readlines()
         for line in lines:
-            line.split()
-            self.czas.append(float(line[0]))
+            line_stripped = line.strip()
+            self.czas.append(int(line_stripped))
         fCzas.close()
+        
 
         for i in range(1,1441):
             if str(i) not in self.intensywnosc.keys():
